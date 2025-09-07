@@ -1,0 +1,380 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Data Analyst Portfolio Design System */
+
+@layer base {
+  :root {
+    /* Modern Purple/Blue Theme */
+    --background: 222 47% 5%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 45% 7%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 45% 7%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 252 85% 60%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 262 83% 65%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 222 40% 12%;
+    --muted-foreground: 215 20% 75%;
+
+    --accent: 192 85% 55%;
+    --accent-foreground: 222 47% 5%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 252 85% 60%;
+
+    --radius: 0.75rem;
+
+    /* Portfolio Specific Colors */
+    --hero-bg: 222 50% 4%;
+    --section-bg: 222 47% 6%;
+    --skill-bar-bg: 222 45% 10%;
+    --project-card-bg: 222 45% 8%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(222 50% 4%), hsl(240 40% 7%));
+    --gradient-accent: linear-gradient(90deg, hsl(252 85% 60%), hsl(192 85% 55%));
+    --gradient-card: linear-gradient(145deg, hsl(222 45% 7%), hsl(232 40% 9%));
+    
+    /* Shadows */
+    --shadow-card: 0 10px 30px -5px rgba(2, 12, 27, 0.7);
+    --shadow-glow: 0 0 25px hsl(252 85% 60% / 0.5);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark mode - same as our modern theme */
+    --background: 222 47% 5%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 45% 7%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 45% 7%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 252 85% 60%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 262 83% 65%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 222 40% 12%;
+    --muted-foreground: 215 20% 75%;
+
+    --accent: 192 85% 55%;
+    --accent-foreground: 222 47% 5%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 252 85% 60%;
+    
+    /* Portfolio specific dark colors */
+    --hero-bg: 222 50% 4%;
+    --section-bg: 222 47% 6%;
+    --skill-bar-bg: 222 45% 10%;
+    --project-card-bg: 222 45% 8%;
+
+    --sidebar-background: 222 47% 5%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 252 85% 60%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 222 40% 12%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217 33% 17%;
+    --sidebar-ring: 252 85% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Hide scrollbars for the whole site */
+body {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* Custom Animations */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px rgba(138, 43, 226, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(138, 43, 226, 0.7), 0 0 30px rgba(138, 43, 226, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(138, 43, 226, 0.5);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Animation Classes */
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.4s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.5s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 0.6s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.6s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 3s ease-in-out infinite;
+}
+
+.animate-rotate {
+  animation: rotate 10s linear infinite;
+}
+
+/* Smooth transitions */
+* {
+  transition: var(--transition-smooth);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.8);
+}
+
+/* Responsive utilities */
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+/* Responsive text sizing */
+@media (max-width: 640px) {
+  .text-responsive-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+}
+
+/* Custom mobile-first responsive spacing */
+.space-y-responsive > :not([hidden]) ~ :not([hidden]) {
+  margin-top: 1rem;
+}
+
+@media (min-width: 640px) {
+  .space-y-responsive > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .space-y-responsive > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 2rem;
+  }
+}
+
+/* Very small screens optimization */
+@media (max-width: 380px) {
+  .container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+  
+  /* Ensure text doesn't break layout on very small screens */
+  h1, h2, h3 {
+    word-break: break-word;
+    hyphens: auto;
+  }
+  
+  /* Smaller buttons on very small screens */
+  .btn-responsive {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* Improve touch targets for mobile */
+@media (max-width: 768px) {
+  button, .btn, a[role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Ensure images are responsive */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Prevent horizontal scroll on small screens */
+html, body {
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
